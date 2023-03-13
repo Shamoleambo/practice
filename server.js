@@ -1,14 +1,11 @@
-const http = require('http')
+const express = require('express')
 
-const port = 3000
+const app = express()
 
-const server = http.createServer()
-server.on('request', (req, res) => {
-  console.log('same thing as before')
-  res.statusCode = 200
-  res.end('<h1>Hoi hoi</h1>')
+app.use('/', (req, res) => {
+  res.send('<h1>Olá Senhor</h1>')
 })
 
-server.listen(port, () => {
-  console.log(`My app is runnig on port ${port}`)
+app.listen(3000, () => {
+  console.log('app running on port 3000')
 })
